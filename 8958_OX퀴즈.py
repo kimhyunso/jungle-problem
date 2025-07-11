@@ -26,18 +26,15 @@ OOOOXOOOOXOOOOX
 55
 30
 '''
-filename = './테스트케이스/8958_OX퀴즈.txt'
-f = open(filename, 'r')
-lines = f.readlines()
-
 loop = int(input())
 result = []
-sum = 0
-value = 1
-flag = True
 
 for i in range(loop):
     quiz_solved = list(input())
+    sum = 0
+    value = 1
+    flag = True
+
     for topic in quiz_solved:
         if topic == 'O':
             sum += value
@@ -53,6 +50,7 @@ for i in range(loop):
 
 for num in result:
     print(num)
+
 
         
         
