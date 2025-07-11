@@ -17,16 +17,12 @@
 
 N = input()
 nums = list(map(int, input().split()))
-nets = [2, 3, 5, 7]
 count = 0
 
-for num in nums:
-    for net in nets:
-        if num == net:
+for i in range(N):
+    for j in range(2, i):
+        if nums[i] % j == 0:
             count += 1
-            break
-        elif num % net != 0:
-            count += 1
-            break
-   
+
 print(count)
+
