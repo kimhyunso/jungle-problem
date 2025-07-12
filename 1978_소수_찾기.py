@@ -31,10 +31,3 @@ for num in nums:
             count += 1
 
 print(count)
-            
-        
-
-
-
-
-
