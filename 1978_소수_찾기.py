@@ -17,12 +17,24 @@
 
 N = input()
 nums = list(map(int, input().split()))
+net = [2, 3, 5, 7]
 count = 0
 
-for i in range(N):
-    for j in range(2, i):
-        if nums[i] % j == 0:
+# 자기 자신으로 나누어 떨어지고, 2, 3, 5, 7로 나누어 떨어지지 않는 것
+
+for num in nums:
+    if num != 1: # 1이면 돌지 않음
+        for i in range(2, num):
+            if num % i == 0: # 2, 3, 5, 7로 나눔 만약 나누어 떨어지면 else 실행
+                break
+        else:
             count += 1
 
 print(count)
+            
+        
+
+
+
+
 

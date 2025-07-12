@@ -25,6 +25,7 @@
 예제 출력 3 
 999999901
 '''
+import math
 
 climb, slip, goal = map(int, input().split())
-print((goal // climb) + slip)
+print(math.ceil((goal - slip) / (climb - slip)))
