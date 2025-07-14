@@ -20,3 +20,11 @@ chess = [0] * 8 # 열
 is_row = [False] * 8 # 행
 is_diagonal_left = [False] * 8 # 대각선 왼쪽 사선 
 is_diagonal_right = [False] * 8 # 대각선 오른쪽 사선
+
+
+
+
+
+
+
+

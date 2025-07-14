@@ -30,14 +30,16 @@
 119
 '''
 X = int(input())
+divide_numbers = [100, 10, 1]
 count = 0
+
 
 for han_su in range(1, X + 1):
     numbers = []
     if han_su <= 99:
         count += 1
     else:
-        for divide_num in [100, 10, 1]:
+        for divide_num in divide_numbers:
             numbers.append(han_su // divide_num)
             han_su %= divide_num
     
