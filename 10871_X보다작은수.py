@@ -22,15 +22,13 @@ X보다 작은 수를 입력받은 순서대로 공백으로 구분해 출력한
 1 4 2 3
 '''
 
-nums = list(map(int, input().split()))
-X = list(map(int, input().split()))
-
-min_num = min(nums)
+X, target_number = map(int, input().split())
+numbers = list(map(int, input().split()))
 result = []
 
-for i in X:
-    if min_num > i:
-        result.append(i)
+for number in numbers:
+    if target_number > number:
+        result.append(number)
 
-for i in result:
-    print(i, end=' ')
+for num in result:
+    print(num)
