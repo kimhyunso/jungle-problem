@@ -22,10 +22,48 @@ N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로�
 4
 5
 '''
-
-N = int(input())
-numbers = [int(input()) for _ in range(N)]
+import sys
 
 
+def find_mid(numbers, left, mid, right):
+    if numbers[mid] < numbers[left]:
+        numbers[mid], numbers[left] = numbers[left], numbers[mid]
+    if numbers[right] < numbers[mid]:
+        numbers[right], numbers[mid] = numbers[mid], numbers[right]
+    return mid
 
 
+
+def partition(numbers, left, right):
+    partition_left = left
+    partition_right = right
+    pivot_index = find_mid(numbers, partition_left, (left + right) // 2, partition_right)
+    pivot = numbers[pivot_index]
+
+    while partition_left <= partition_right:
+        while numbers[partition_left] < pivot: partition_left += 1
+        while numbers[partition_right] > pivot: partition_right -= 1
+
+        if partition_left <= partition_right:
+            numbers[partition_left], numbers[partition_right] = numbers[partition_right], numbers[partition_left]
+            partition_left += 1
+            partition_right -= 1
+    
+    if left < partition_right:
+        partition(numbers, left, partition_left)
+    
+    if partition_left < right:
+        partition(numbers, partition_left, right)
+
+
+N = int(sys.stdin.readline())
+numbers = [int(sys.stdin.readline()) for _ in range(N)]
+
+partition(numbers, 0, len(numbers) - 1)
+
+for num in numbers:
+    print(num)
+
+
+
+    
