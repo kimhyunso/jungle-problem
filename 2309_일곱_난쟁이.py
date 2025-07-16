@@ -31,20 +31,11 @@
 20
 23
 '''
-        
 
-        
+# 가장 큰 값을 제외하고 나머지에서 찾아가면댐
 
+dwarf = [int(input()) for _ in range(9)]
+dwarf.sort()
+result = []
 
-
-        
-
-
-    
-    
-
-
-
-    
-
-
+# 이중 반복문 사용

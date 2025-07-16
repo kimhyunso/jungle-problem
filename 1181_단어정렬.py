@@ -53,10 +53,3 @@ words = sorted(words.items(), key=lambda key:(key[1], key[0]))
 
 for word in words:
     print(word[0])
-
-
-a = ['n', 'i']
-
-a.sort()
-
-print(a)
