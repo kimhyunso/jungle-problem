@@ -32,10 +32,35 @@
 23
 '''
 
-# 가장 큰 값을 제외하고 나머지에서 찾아가면댐
-
 dwarf = [int(input()) for _ in range(9)]
 dwarf.sort()
+
+sum_dwarf_key = sum(dwarf)
+left = 0
+right = 0
 result = []
 
-# 이중 반복문 사용
+for i in range(len(dwarf)):
+    for j in range(i + 1, len(dwarf)):
+        if sum_dwarf_key - (dwarf[i] + dwarf[j]) == 100:
+            left = i
+            right = j
+            break
+
+
+
+for num in dwarf:
+    if num != dwarf[left] and num != dwarf[right]:
+        print(num)
+
+
+
+
+
+
+
+
+
+
+
+
