@@ -75,15 +75,15 @@
 #             dfs(nx, ny, num)
 
 # result = 0
-# for i in range(max_height):
+# for rain in range(max_height):
 #     count = 0
 #     visited = [[False] * N for _ in range(N)]
 #     for j in range(N):
 #         for k in range(N):
-#             if map[j][k] > i and not visited[j][k]:
+#             if map[j][k] > rain and not visited[j][k]:
 #                 count += 1
-#                 visited[j][k] = 1
-#                 dfs(j, k, i)
+#                 visited[j][k] = True
+#                 dfs(j, k, rain)
 #     result = max(result, count)
 
 # print(result)
@@ -129,6 +129,3 @@ for rain in range(0, max_height + 1):
     result = max(result, count)
 
 print(result)
-
-
-
