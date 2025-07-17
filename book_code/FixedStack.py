@@ -59,3 +59,4 @@ class FixedStack:
             print('스택이 비어 있습니다.')
         else:
             print(self.stk[:self.ptr])
+            
