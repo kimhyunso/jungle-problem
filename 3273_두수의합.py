@@ -4,26 +4,28 @@ sys.stdin = open("input.txt", "r")
 N = int(input())
 numbers = list(map(int, input().split()))
 numbers.sort()
+target = int(input())
 
 left = 0
 right = len(numbers) - 1
-min_value = float('inf')
 
-l = 0
-r = 0
+count = 0
 
 while left < right:
     sum = numbers[left] + numbers[right]
-
-    if abs(sum) < min_value:
-        min_value = abs(sum)
-        l = left
-        r = right
     
-    if sum < 0:
+    if sum == target:
+        count += 1
         left += 1
-    else:
         right -= 1
-    
+    elif sum < target: # target보다 값이 커져야하니 <
+        left += 1
+    else: # target보다 값이 작아져야하니 >
+        right -= 1
 
-print(numbers[l], numbers[r])
+
+print(count)
+            
+
+
+

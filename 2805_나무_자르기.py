@@ -1,5 +1,5 @@
-# import sys
-# sys.stdin = open("input.txt", "r") 
+import sys
+sys.stdin = open("input.txt", "r") 
 
 # N 나무의 개수 / M 상근이가 가져갈 나무 길이
 N, M = map(int, input().split())
