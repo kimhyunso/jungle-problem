@@ -3,15 +3,11 @@ sys.stdin = open("input.txt", "r")
 
 N = int(input())
 numbers = list(map(int, input().split()))
-numbers.sort()
-log_numbers = []
-log_numbers.append(numbers[0])
+log_numbers = [1] * N
 
+for i in range(N):
+    for j in range(i):
+        if numbers[j] < numbers[i]:
+            log_numbers[i] = max(log_numbers[i], log_numbers[j] + 1)
 
-
-
-print(len(log_numbers))
-    
-    
-
-
+print(max(log_numbers))
