@@ -1,43 +1,46 @@
-# 마스터정리
 import sys
-sys.stdin = open("input.txt", "r") 
+sys.stdin = open("input.txt", "r")
+input = sys.stdin.readline
 
+# 최단 거리, 최장 거리
 house_count, wifi = map(int, input().split())
-houses = []
+house_matrix = []
 
-for i in range(house_count):
-    houses.append(int(input()))
+for _ in range(house_count):
+    house_matrix.append(int(input()))
+house_matrix.sort()
 
-houses.sort()
+start = house_matrix[0]
+end = house_matrix[-1] - house_matrix[0]
 
-# 집에 공유기를 설치할 수 있는 최대의 거리를 구하기
-# 집 간의 거리는 배열로 주어짐
+def binary_search(start, end):
+    result = 0
 
-start = houses[0]
-end = houses[-1] - houses[0]
-max_d = 0
+    while start <= end:
+        mid = (start + end) // 2
+        count = 1 # 와이파이 설치 개수
+        last = house_matrix[0]
+        
+        for i in range(1, house_count):
+            if house_matrix[i] - last >= mid:
+                count += 1
+                last = house_matrix[i]
+        
+        if count >= wifi:
+            result = mid
+            start = mid + 1
+        else:
+            end = mid - 1
+    return result
 
-def binary_search(start , end):
-    global max_d
-    if start > end:
-        return
-    
-    mid = (start + end) // 2
-    w = 1
-    last = houses[0]
-
-    for i in range(len(houses)):
-        if houses[i] - last >= mid:
-            last = houses[i]
-            w += 1
-    if w >= wifi:
-        max_d = max(mid, max_d)
-        binary_search(mid+1, end)
-    else:
-        binary_search(start, mid-1)
-
+result = binary_search(start, end)
+print(result)
 
 
-binary_search(start, end)
 
-print(max_d)
+
+
+
+
+
+
