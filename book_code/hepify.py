@@ -66,8 +66,5 @@ heap.push(8)
 heap.push(1)
 heap.push(2)
 
-
-heap.peek()
-
 # print("Heap:", heap)
 
