@@ -28,6 +28,3 @@ def bfs(x, y):
 
 bfs(0, 0)
 print(maps[N - 1][M - 1])
-
-        
-
