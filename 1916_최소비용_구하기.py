@@ -50,11 +50,13 @@ INF = int(1e9)
 city_cnt = int(input())
 bus_cnt = int(input())
 graph = [[] for _ in range(city_cnt + 1)]
-distarnce = [INF] * (city_cnt + 1) 
+distarnce = [INF] * (city_cnt + 1)
 for _ in range(bus_cnt):
     vertex, edge, cost = map(int, input().split())
     graph[vertex].append((edge, cost))
 start, end = map(int, input().split())
+
+print(graph)
 
 def dijkstra(start):
     que = []
@@ -71,7 +73,7 @@ def dijkstra(start):
                 distarnce[v[0]] = cost
                 
 dijkstra(start)
-print(distarnce[end])
+# print(distarnce[end])
 
 
 
