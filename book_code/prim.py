@@ -29,7 +29,6 @@ visited = [False] * (vetex_cnt + 1)
 
 for _ in range(edge_cnt):
     vetex, edge, weight = map(int, input().split())
-
     graph[vetex].append([weight, edge])
     graph[edge].append([weight, vetex])
 
