@@ -1,45 +1,41 @@
 import sys
-sys.setrecursionlimit(10**5)
 sys.stdin = open("input.txt", "r")
-input = sys.stdin.readline
+sys.setrecursionlimit(10 ** 6)
 
-n = int(input())
-places = list(input())
+N = int(input())
+places = list(list(map(int, input())))
 places.insert(0, 0)
-graph = [[] for _ in range(n+1)]
+graph = [[] for _ in range(N + 1)]
+visited = [False] * (N + 1)
+result = 0
 
-visited = [False] * (n+1)
-result = [0] * (n+1)
+for _ in range(N - 1):
+    vertex, edge = map(int, input().split())
+    graph[vertex].append(edge)
+    graph[edge].append(vertex)
 
-for _ in range(n-1):
-    vetex, edge = map(int, input().split())
-    graph[vetex].append(edge)
-    graph[edge].append(vetex)
-    
-def dfs(node, start):
-    if int(places[node]) == 1:
-        result[node] += 1
-        result[start] += 1
-        return 
-    for next_node in graph[node]:
-        if not visited[next_node]:
-            visited[next_node] = True
-            dfs(next_node, start)
-            visited[next_node] = False
+for u in range(1, N + 1):
+    for v in graph[u]:
+        if u < v:  # 중복 방지
+            if places[u] == 1 and places[v] == 1:
+                result += 2
 
-ans = 0
-for i in range(1, n+1):
-    if int(places[i]) == 1:
-        visited[i] = True
+def dfs(start, visited):
+    count = 0
+    visited[start] = True
 
-        for next_node in graph[i]:
-            if int(places[next_node]) == 1:
-                if not visited[next_node]:
-                    result[next_node] += 1
-                    result[i] += 1
-            else:
-                visited[next_node] = True
-                dfs(next_node, i)
-                visited[next_node] = False
+    for node in graph[start]:
+        if places[node] == 1:
+            count += 1
+        elif not visited[node]:
+            count += dfs(node, visited)
+    return count
 
-print(sum(result))
+for i in range(1, N + 1):
+    if places[i] == 0 and not visited[i]:
+        temp = dfs(i, visited)
+        result += temp * (temp - 1)
+
+print(result) 
+
+
