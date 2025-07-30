@@ -56,8 +56,6 @@ for _ in range(bus_cnt):
     graph[vertex].append((edge, cost))
 start, end = map(int, input().split())
 
-print(graph)
-
 def dijkstra(start):
     que = []
     heapq.heappush(que, (0, start)) # cost, node
