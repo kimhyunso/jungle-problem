@@ -28,7 +28,6 @@ def bfs(graph, start, visited):
                 visited[v] = True
                 queue.append(v)
 
-
 for i in range(1, N + 1):
     if not visited[i]:
         count += 1

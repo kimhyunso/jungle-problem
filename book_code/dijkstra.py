@@ -39,8 +39,6 @@ sys.stdin = open("input.txt", "r")
 #             cost = distance[now] + j[1]
 #             if cost < distance[j[0]]:
 #                 distance[j[0]] = cost
-
-
 # dijkstra(start)
 
 
@@ -79,19 +77,3 @@ def dijkstra(start):
         #         distance[i[0]] = cost
 
 dijkstra(start)
-
-
-# for y in range():
-#     for x in range():
-#         if x == y:
-#             graph[] == 0
-
-
-# for i in range():
-#     graph[i][i] = 0
-
-
-# for k in range(M):
-#     for y in range(s):
-#         for x in range():
-#             distance = min(distance[y][x], distance[y][k] + distance[k][x]) 
