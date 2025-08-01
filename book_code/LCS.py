@@ -1,4 +1,4 @@
-# top-down 방식 - 재귀
+# # top-down 방식 - 재귀
 
 def LCS(X, Y):
     m, n = len(X), len(Y)
@@ -10,20 +10,22 @@ def LCS(X, Y):
         else:
             return max(LCS(X, Y[:n-1]), LCS(X[:m-1], Y))
 
-X = 'ABCBDAB'
-Y = 'BDCAB'
+X = input()
+Y = input()
+# X = 'ABCBDAB'
+# Y = 'BDCAB'
 m, n = len(X), len(Y)
 dp = [[0] * (n+1) for _ in range(m+1)]
 
 # bottom-up 방식 - dp
-def LCS_DP(X, Y):
-    for i in range(m):
-        for j in range(n):
-            if X[i] == Y[j]:
-                dp[i+1][j+1] = dp[i][j] + 1
-            else:
-                dp[i+1][j+1] = max(dp[i][j+1], dp[i+1][j])
-    return dp[m][n]
+# def LCS_DP(X, Y):
+#     for i in range(m):
+#         for j in range(n):
+#             if X[i] == Y[j]:
+#                 dp[i+1][j+1] = dp[i][j] + 1
+#             else:
+#                 dp[i+1][j+1] = max(dp[i][j+1], dp[i+1][j])
+#     return dp[m][n]
 
 def trace_LCS(X, Y):
     i, j = len(X), len(Y)
@@ -41,13 +43,7 @@ def trace_LCS(X, Y):
 
     return ''.join(reversed(lcs_str))
 
-LCS_DP(X, Y)
-
-for y in range(1, m + 1):
-        for x in range(1, n + 1):
-            print(dp[y][x], end=' ')
-        print()
-print(X, Y)
-
+length = LCS(X, Y)
 result = trace_LCS(X, Y)
+print(length)
 print(result)
