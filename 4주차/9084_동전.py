@@ -16,10 +16,3 @@ for _ in range(T):
             memo[i] += memo[i - coin]
     
     print(memo[target])
-
-
-
-
-
-
-
