@@ -14,6 +14,3 @@ for length in range(1, N):  # 부분 행렬 개수
             dp[i][j] = min(dp[i][j], cost)
 
 print(dp)
-
-        
-
